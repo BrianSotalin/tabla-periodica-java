@@ -1,27 +1,49 @@
 package com.menu;
 
 import java.util.List;
-import com.resources.Elemento;
-import com.resources.cargarCSV;
+import java.util.Scanner;
+
+import com.resources.*;
+
+
 
 public class MenuMain {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int entrada;
 		
 		List<Elemento> tablaPeriodica = cargarCSV.cargarDatosDesdeCSV("tabla_periodica.csv");
+		
+		do {
+		
+		System.out.println("***** Menu Tabla Periodica *****");
+		System.out.println("1. Buscar por numero atomico");
+		System.out.println("Pulse (0) para Salir");
+		System.out.println("Indique la operación que desea realizar:");
+		
+		 entrada=  sc.nextInt();
+		
+        // Lógica de las operaciones
+        switch (entrada) {
+        
+        case 1:
+        	
+        	System.out.println("*** Ingrese el numero atomico: **");
+        	int numAtomico =  sc.nextInt();
+        	helpers.searchElementByNumberAtomic(numAtomico, tablaPeriodica); 
+        	break;
+        case 0:
+        	
+        	System.out.println("*** Sistema finalizado **");
+        	
+        	break;	
+        default:
+        	System.out.println("Operación no valida");	
+        }
+		}while(entrada!=0);
+        sc.close();
 
-	    // 2. Imprimimos el primer elemento si la lista no está vacía
-	    if (!tablaPeriodica.isEmpty()) {
-	        Elemento primero = tablaPeriodica.get(0);
-	        
-	        System.out.println("\n--- DATOS DEL PRIMER ELEMENTO ---");
-	        System.out.println("Nombre: " + primero.getElement());
-	        System.out.println("Símbolo: " + primero.getSymbol());
-	        System.out.println("Número Atómico: " + primero.getAtomicNumber());
-	        System.out.println("Masa Atómica: " + primero.getAtomicMass());
-	        System.out.println("Descubridor: " + primero.getDiscoverer());
-	        System.out.println("---------------------------------");
-	    }
-
+       
 	}
 }
