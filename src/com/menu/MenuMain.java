@@ -19,6 +19,7 @@ public class MenuMain {
 		
 		System.out.println("***** Menu Tabla Periodica *****");
 		System.out.println("1. Buscar por numero atomico");
+		System.out.println("2. Buscar por nombre o simbolo del Elemento");
 		System.out.println("Pulse (0) para Salir");
 		System.out.println("Indique la operación que desea realizar:");
 		
@@ -29,9 +30,15 @@ public class MenuMain {
         
         case 1:
         	
-        	System.out.println("*** Ingrese el numero atomico: **");
+        	System.out.println("*** Ingrese el numero atomico: ***");
         	int numAtomico =  sc.nextInt();
         	helpers.searchElementByNumberAtomic(numAtomico, tablaPeriodica); 
+        	break;
+        case 2:
+        	Scanner name = new Scanner(System.in);
+        	System.out.println("*** Ingrese el nombre del Elemento: ***");
+        	String nameElement =  name.nextLine();
+        	helpers.searchByNameOrSymbol(nameElement,tablaPeriodica); 
         	break;
         case 0:
         	

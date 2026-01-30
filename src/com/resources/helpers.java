@@ -1,13 +1,34 @@
 package com.resources;
 
-public class helpers {
+import java.util.List;
 
+public class helpers {
+	
+	//funcion para buscar por numero atomico
 	public static void searchElementByNumberAtomic(int atomicNumber, java.util.List<Elemento> tablaPeriodica) {
-	    // 2. Imprimimos el primer elemento si la lista no está vacía
+	    
 	    if (!tablaPeriodica.isEmpty()) {
-	    	Elemento e = tablaPeriodica.get(atomicNumber-1); // Tomamos el primer elemento (Hidrógeno)
+	    	Elemento e = tablaPeriodica.get(atomicNumber-1); 
 	        
-	        System.out.println("==========================================");
+	       printConsole(e);
+	    }
+	}
+	//funcion para buscar por nombre o simbolo  del elemento
+	public static void searchByNameOrSymbol(String nombreBusqueda,List<Elemento> tablaPeriodica) {
+	    for (Elemento e : tablaPeriodica) {
+	        // Comparamos ignorando mayúsculas/minúsculas y espacios
+
+	        if (e.getElement().equalsIgnoreCase(nombreBusqueda.trim()) || 
+	                e.getSymbol().equalsIgnoreCase(nombreBusqueda.trim())) {
+	        	 printConsole(e);
+	            }
+	    }
+	   
+	}
+	
+	//funcion para imprimir en consola los datos del elemento
+	public static void printConsole(Elemento e) {
+		 System.out.println("==========================================");
 	        System.out.println("       DATOS COMPLETOS DEL ELEMENTO       ");
 	        System.out.println("==========================================");
 	        
@@ -55,6 +76,5 @@ public class helpers {
 	        System.out.println("27. Capas (Shells):   " + e.getNumberOfShells());
 	        System.out.println("28. Valencia:         " + e.getNumberOfValence());
 	        System.out.println("==========================================");
-	    }
 	}
 }
