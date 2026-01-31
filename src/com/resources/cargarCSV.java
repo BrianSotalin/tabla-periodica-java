@@ -8,7 +8,9 @@ import java.util.List;
 
 public class cargarCSV {
 	public static List<Elemento> cargarDatosDesdeCSV(String rutaArchivo) {
+		// Lista para almacenar los elementos cargados
         List<Elemento> listaEnMemoria = new ArrayList<>();
+        // Variable para almacenar cada línea leída
         String linea;
         try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
             // Saltamos la línea de encabezados
@@ -21,18 +23,23 @@ public class cargarCSV {
 
                 // Verificamos que la línea tenga datos (mínimo las columnas clave)
                 if (columnas.length >= 28) {
+                	// Creamos un nuevo objeto Elemento y lo añadimos a la lista
                     Elemento e = new Elemento(columnas);
+                    // Añadimos el elemento a la lista en memoria
                     listaEnMemoria.add(e);
                 }
             }
+            // Confirmación de carga exitosa
             System.out.println("✅ Se cargaron " + listaEnMemoria.size() + " elementos del archivo .csv");
             
         } catch (IOException e) {
+        	// Manejo de errores de E/S
             System.err.println("❌ Error al leer el archivo: " + e.getMessage());
         } catch (Exception e) {
+        	// Manejo de otros errores, como formato incorrecto
             System.err.println("❌ Error de formato en los datos: " + e.getMessage());
         }
-
+// Devolvemos la lista de elementos cargados
         return listaEnMemoria;
     }
 

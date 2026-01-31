@@ -9,8 +9,9 @@ public class helpers {
 	
 	//funcion para buscar por numero atomico
 	public static void searchElementByNumberAtomic(int atomicNumber, java.util.List<Elemento> tablaPeriodica) {
-	    
+	    // comprobamos que la tabla periodica no este vacia
 	    if (!tablaPeriodica.isEmpty()) {
+	    		        // restamos 1 al numero atomico para obtener el indice correcto
 	    	Elemento e = tablaPeriodica.get(atomicNumber-1); 
 	        
 	       printConsole(e);
@@ -18,6 +19,7 @@ public class helpers {
 	}
 	//funcion para buscar por nombre o simbolo  del elemento
 	public static void searchByNameOrSymbol(String nombreBusqueda,List<Elemento> tablaPeriodica) {
+		// recorremos la tabla periodica
 	    for (Elemento e : tablaPeriodica) {
 	        // Comparamos ignorando mayúsculas/minúsculas y espacios
 
@@ -29,33 +31,41 @@ public class helpers {
 	   
 	}
 	
-	
+	//funcion para buscar por tipo de elemento
 	public static List<Elemento> searchByType( String type,List<Elemento> tablaPeriodica) {
+		//lista para almacenar los elementos filtrados
 		List<Elemento> filtrados = new ArrayList<>();
-	    
+	    //recorremos la tabla periodica
 	    for (Elemento e : tablaPeriodica) {
+	    	//filtramos por tipo
 	    	switch (type.toLowerCase()) {
+	    	//segun el tipo, comprobamos la propiedad correspondiente
 	        case "radioactive":
+	        	//si es radioactivo, lo añadimos a la lista
 	            if (e.isRadioactive()) {
 	                filtrados.add(e);
 	            }
 	            break;
 	        case "natural":
+	        	//si es natural, lo añadimos a la lista
 	            if (e.isNatural()) {
 	                filtrados.add(e);
 	            }
 	            break;
 	        case "metal":
+	        	//si es metal, lo añadimos a la lista
 	            if (e.isMetal()) {
 	                filtrados.add(e);
 	            }
 	            break;
 	        case "nonmetal":
+	        	//si es no metal, lo añadimos a la lista
 	            if (e.isNonmetal()) {
 	                filtrados.add(e);
 	            }
 	            break;
 	        case "metalloid":
+	        	//si es metaloide, lo añadimos a la lista
 	            if (e.isMetalloid()) {
 	                filtrados.add(e);
 	            }

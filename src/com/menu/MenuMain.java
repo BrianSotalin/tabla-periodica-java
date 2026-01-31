@@ -10,10 +10,11 @@ import com.resources.*;
 public class MenuMain {
 
 	public static void main(String[] args) {
-		
+		// Creamos el scanner para leer la entrada del usuario
 		Scanner sc = new Scanner(System.in);
+		// Variable para almacenar la entrada del usuario
 		int entrada;
-		
+		// Cargamos los datos del CSV en una lista de Elemento
 		List<Elemento> tablaPeriodica = cargarCSV.cargarDatosDesdeCSV("tabla_periodica.csv");
 		
 		do {
@@ -28,7 +29,7 @@ public class MenuMain {
 		System.out.println("7. Listar todos los metaloides");
 		System.out.println("Pulse (0) para Salir");
 		System.out.println("Indique la operación que desea realizar:");
-		
+		// Leemos la entrada del usuario
 		 entrada=  sc.nextInt();
 		
         // Lógica de las operaciones
@@ -48,7 +49,9 @@ public class MenuMain {
         	break;
         case 3:
         	System.out.println("*** Listado de todos los metales: ***");
+        	//creamos la lista de elementos radioactivos
 			List<Elemento> radioactive = helpers.searchByType("radioactive",tablaPeriodica);
+			//recorremos la lista y mostramos los elementos
 			for (Elemento e : radioactive) {
 				// el %-3d al principio sirve  para el número atómico (3 espacios, alineado a la izquierda)
 			    System.out.printf("#: %-3d | %-15s | %-5s | Tipo: %-15s%n", 
@@ -58,7 +61,9 @@ public class MenuMain {
 			break;	
         case 4:
         	System.out.println("*** Listado de todos los naturales: ***");
+        	//creamos la lista de elementos naturales
 			List<Elemento> natural = helpers.searchByType("natural",tablaPeriodica);
+			//recorremos la lista y mostramos los elementos
 			for (Elemento e : natural) {
 				// el %-3d al principio sirve  para el número atómico (3 espacios, alineado a la izquierda)
 			    System.out.printf("#: %-3d | %-15s | %-5s | Tipo: %-15s%n", 
@@ -68,7 +73,9 @@ public class MenuMain {
 			break;		
         case 5:
         	System.out.println("*** Listado de todos los metales: ***");
+        	//creamos la lista de elementos metales
 			List<Elemento> metales = helpers.searchByType("metal",tablaPeriodica);
+			//recorremos la lista y mostramos los elementos
 			for (Elemento e : metales) {
 				// el %-3d al principio sirve  para el número atómico (3 espacios, alineado a la izquierda)
 			    System.out.printf("#: %-3d | %-15s | %-5s | Tipo: %-15s%n", 
@@ -78,7 +85,9 @@ public class MenuMain {
 			break;
         case 6:
         	System.out.println("*** Listado de todos los no metales: ***");
+        	//creamos la lista de elementos no metales
 			List<Elemento> nonmetal = helpers.searchByType("nonmetal",tablaPeriodica);
+			//recorremos la lista y mostramos los elementos
 			for (Elemento e : nonmetal) {
 				// el %-3d al principio sirve  para el número atómico (3 espacios, alineado a la izquierda)
 			    System.out.printf("#: %-3d | %-15s | %-5s | Tipo: %-15s%n", 
@@ -88,7 +97,9 @@ public class MenuMain {
 			break;	
         case 7:
         	System.out.println("*** Listado de todos los metaloides: ***");
+        	//creamos la lista de elementos metaloides
 			List<Elemento> metalloid = helpers.searchByType("metalloid",tablaPeriodica);
+			//recorremos la lista y mostramos los elementos
 			for (Elemento e : metalloid) {
 				// el %-3d al principio sirve  para el número atómico (3 espacios, alineado a la izquierda)
 			    System.out.printf("#: %-3d | %-15s | %-5s | Tipo: %-15s%n", 
@@ -104,7 +115,9 @@ public class MenuMain {
         default:
         	System.out.println("Operación no valida");	
         }
+        //final del do-while
 		}while(entrada!=0);
+		//cerramos el scanner
         sc.close();
 
        

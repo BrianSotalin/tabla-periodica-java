@@ -34,6 +34,7 @@ public class Elemento {
 
 	    // Constructor que procesa el array de Strings del CSV
 	    public Elemento(String[] row) {
+	    	// Asignación de cada campo, con manejo de posibles valores vacíos
 	        this.atomicNumber = Integer.parseInt(row[0].trim());
 	        this.element = row[1].trim();
 	        this.symbol = row[2].trim();
@@ -66,7 +67,9 @@ public class Elemento {
 
 	    // Método auxiliar para evitar errores con celdas vacías o datos numéricos mal formados
 	    private double parseDouble(String value) {
+	    	// Si el valor es nulo o vacío, retornamos 0.0
 	        if (value == null || value.trim().isEmpty()) return 0.0;
+	        // Intentamos parsear el valor, si falla retornamos 0.0
 	        try {
 	            return Double.parseDouble(value.trim());
 	        } catch (NumberFormatException e) {
