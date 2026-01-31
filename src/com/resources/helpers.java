@@ -1,8 +1,11 @@
 package com.resources;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class helpers {
+	//colores para consola
+	public static final String ANSI_BLUE = "\u001B[34m";
 	
 	//funcion para buscar por numero atomico
 	public static void searchElementByNumberAtomic(int atomicNumber, java.util.List<Elemento> tablaPeriodica) {
@@ -24,6 +27,46 @@ public class helpers {
 	            }
 	    }
 	   
+	}
+	
+	
+	public static List<Elemento> searchByType( String type,List<Elemento> tablaPeriodica) {
+		List<Elemento> filtrados = new ArrayList<>();
+	    
+	    for (Elemento e : tablaPeriodica) {
+	    	switch (type.toLowerCase()) {
+	        case "radioactive":
+	            if (e.isRadioactive()) {
+	                filtrados.add(e);
+	            }
+	            break;
+	        case "natural":
+	            if (e.isNatural()) {
+	                filtrados.add(e);
+	            }
+	            break;
+	        case "metal":
+	            if (e.isMetal()) {
+	                filtrados.add(e);
+	            }
+	            break;
+	        case "nonmetal":
+	            if (e.isNonmetal()) {
+	                filtrados.add(e);
+	            }
+	            break;
+	        case "metalloid":
+	            if (e.isMetalloid()) {
+	                filtrados.add(e);
+	            }
+	            break;
+	        default:
+	            // Tipo no reconocido, no se ñade nada a la lista 
+	            break;
+	    	}
+
+	    }
+	    return filtrados;
 	}
 	
 	//funcion para imprimir en consola los datos del elemento
