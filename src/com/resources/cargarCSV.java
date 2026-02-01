@@ -30,14 +30,14 @@ public class cargarCSV {
                 }
             }
             // Confirmación de carga exitosa
-            System.out.println("✅ Se cargaron " + listaEnMemoria.size() + " elementos del archivo .csv");
+            System.out.println("o Se cargaron " + listaEnMemoria.size() + " elementos del archivo .csv");
             
         } catch (IOException e) {
         	// Manejo de errores de E/S
-            System.err.println("❌ Error al leer el archivo: " + e.getMessage());
+            System.err.println("XXX Error al leer el archivo: " + e.getMessage()+" XXX");
         } catch (Exception e) {
         	// Manejo de otros errores, como formato incorrecto
-            System.err.println("❌ Error de formato en los datos: " + e.getMessage());
+            System.err.println("XXX Error de formato en los datos: " + e.getMessage()+" XXX");
         }
 // Devolvemos la lista de elementos cargados
         return listaEnMemoria;

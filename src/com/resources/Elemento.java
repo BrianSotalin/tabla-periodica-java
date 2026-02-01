@@ -121,10 +121,49 @@ public class Elemento {
 	    public String getDiscoverer() { return discoverer; }
 	    public String getYear() { return year; }
 
+	    // Método toString para mostrar todos los datos del elemento
 	    @Override
 	    public String toString() {
-	        return String.format("Elemento [%s | %s]: Z=%d, Masa=%.2f, Tipo=%s", 
-	                symbol, element, atomicNumber, atomicMass, type);
+	        return "==========================================\n" +
+	               "       DATOS COMPLETOS DEL ELEMENTO       \n" +
+	               "==========================================\n" +
+	               "// IDENTIFICACIÓN BÁSICA\n" +
+	               "1. Número Atómico: " + this.atomicNumber + "\n" +
+	               "2. Elemento:       " + this.element + "\n" +
+	               "3. Símbolo:        " + this.symbol + "\n" +
+	               "4. Masa Atómica:   " + this.atomicMass + "\n" +
+	               "\n// COMPOSICIÓN SUBATÓMICA\n" +
+	               "5. Neutrones:      " + this.numberOfNeutrons + "\n" +
+	               "6. Protones:       " + this.numberOfProtons + "\n" +
+	               "7. Electrones:     " + this.numberOfElectrons + "\n" +
+	               "\n// UBICACIÓN\n" +
+	               "8. Periodo:        " + this.period + "\n" +
+	               "9. Grupo:          " + this.group + "\n" +
+	               "10. Fase:          " + this.phase + "\n" +
+	               "\n// PROPIEDADES (BOOLEANAS)\n" +
+	               "11. Radiactivo:    " + this.radioactive + "\n" +
+	               "12. Natural:       " + this.natural + "\n" +
+	               "13. Metal:         " + this.metal + "\n" +
+	               "14. No metal:      " + this.nonmetal + "\n" +
+	               "15. Metaloide:     " + this.metalloid + "\n" +
+	               "\n// PROPIEDADES QUÍMICAS\n" +
+	               "16. Tipo:          " + this.type + "\n" +
+	               "17. Radio Atómico: " + this.atomicRadius + "\n" +
+	               "18. Electronegatividad: " + this.electronegativity + "\n" +
+	               "19. 1ra Ionización: " + this.firstIonization + "\n" +
+	               "\n// PROPIEDADES FÍSICAS\n" +
+	               "20. Densidad:      " + this.density + "\n" +
+	               "21. Punto Fusión:  " + this.meltingPoint + "\n" +
+	               "22. Punto Ebullición: " + this.boilingPoint + "\n" +
+	               "23. Isótopos:      " + this.numberOfIsotopes + "\n" +
+	               "\n// HISTORIA\n" +
+	               "24. Descubridor:   " + this.discoverer + "\n" +
+	               "25. Año:           " + this.year + "\n" +
+	               "\n// ENERGÍA Y ELECTRONES\n" +
+	               "26. Calor Específico: " + this.specificHeat + "\n" +
+	               "27. Capas (Shells):   " + this.numberOfShells + "\n" +
+	               "28. Valencia:         " + this.numberOfValence + "\n" +
+	               "==========================================";
 	    }
 	}
 
